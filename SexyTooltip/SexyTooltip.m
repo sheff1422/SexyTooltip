@@ -362,9 +362,9 @@ CGRectFromEdgeInsets(CGRect rect, UIEdgeInsets edgeInsets) {
             if (CGRectGetMinX(frame) <= CGRectGetMinX(insetRect)) {
                 frame.origin.x = _margin.left;
             }
-            if (CGRectGetMaxX(frame) >= CGRectGetMaxX(insetRect)) {
-                frame.origin.x = CGRectGetMaxX(view.bounds) - frame.size.width - _margin.right;
-            }
+            //            if (CGRectGetMaxX(frame) >= CGRectGetMaxX(insetRect)) {
+            //                frame.origin.x = CGRectGetMaxX(view.bounds) - frame.size.width - _margin.right;
+            //            }
         } else if (arrowDirection == SexyTooltipArrowDirectionLeft || arrowDirection == SexyTooltipArrowDirectionRight) {
             if (CGRectGetMinY(frame) <= CGRectGetMinY(insetRect)) {
                 frame.origin.y = _margin.top;
@@ -394,8 +394,10 @@ CGRectFromEdgeInsets(CGRect rect, UIEdgeInsets edgeInsets) {
             CGFloat min = -mid + _cornerRadius + _arrowHeight;
             if (_arrowOffset < min) {
                 _arrowOffset = min;
+                good = YES;
             } else if (_arrowOffset > max) {
                 _arrowOffset = max;
+                good = YES;
             } else {
                 good = YES;
             }
